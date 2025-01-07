@@ -350,7 +350,7 @@ export default function DataTableDemo() {
           <TableBody>
             {table.getRowModel().rows.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
+               <div key={row.id}><TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
@@ -362,7 +362,7 @@ export default function DataTableDemo() {
                       )}
                     </TableCell>
                   ))}
-                </TableRow>
+                </TableRow></div> 
               ))
             ) : (
               <TableRow>
