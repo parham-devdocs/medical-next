@@ -1,7 +1,21 @@
 import type { Config } from "tailwindcss";
-
+import  daisyUi  from 'daisyui';
 export default {
   darkMode: ["class"],
+  plugins: [
+    daisyUi,
+    function ({ addUtilities }) {
+      addUtilities({
+        ".line-clamp-3": {
+          display: "-webkit-box",
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+          WebkitLineClamp: "3",
+          lineClamp: "3",
+        },
+      });
+    },
+  ],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,6 +29,18 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        helper1: {
+          Default: "hsl(var(--helper1))",
+        },
+        helper2: {
+          Default: "hsl(var(--helper2))",
+        },
+        helper3: {
+          Default: "hsl(var(--helper3))",
+        },
+        helper4: {
+          Default: "hsl(var(--helper4))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -50,6 +76,16 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -61,11 +97,14 @@ export default {
       },
       keyframes: {
         fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
         },
       },
     },
   },
-  
 } satisfies Config;

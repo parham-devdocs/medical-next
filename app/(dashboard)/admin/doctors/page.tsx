@@ -153,10 +153,12 @@ export const columns: ColumnDef<Payment>[] = [
       <div className="flex justify-center">
         <Avatar>
           <AvatarImage
-            src={row.getValue("profileImage") || ""} // Use empty string if no image
+            src={
+              row.getValue("profileImage") || "https://github.com/shadcn.png"
+            } // Use empty string if no image
             alt={row.getValue("name")} // Use name as alt text
           />
-          <AvatarFallback>{row.getValue("name").slice(3,6)}</AvatarFallback>{" "}
+          {/* <AvatarFallback>{row.getValue("name").slice(3, 6)}</AvatarFallback>{" "} */}
           {/* Fallback to first letter of name */}
         </Avatar>
       </div>
@@ -376,7 +378,7 @@ export default function DataTableDemo() {
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
+        <div className="flex-1 text-sm text-secondary">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
