@@ -7,7 +7,7 @@ import { motion } from "framer-motion"; // Make sure this import is correct
 
 const Hero = () => {
   return (
-    <div className="flex flex-col lg:flex-row min-h-[90vh] py-4 border-l-2 border-dashed border-primary mt-2 bg-background">
+    <div className="flex flex-col lg:flex-row min-h-[90vh] bg-background">
       <div className="flex-1 px-10 py-10">
         <motion.h1
           className="text-3xl xl:text-6xl font-bold md:font-extrabold text-primary"

@@ -6,7 +6,7 @@ const CommentCard = ({ comment, image, commentator, date }:Comment) => {
   
   return (
     <div
-      className={`bg shadow-md px-10 py-6   overflow-hidden  bg-helper1-Default w-full sm:w-3/4   `}
+      className={`bg shadow-md px-10 py-6   overflow-hidden  bg-green-100 w-full sm:w-3/4 rounded-md   `}
     >
       <div className="flex items-center gap-3">
         <Avatar>
