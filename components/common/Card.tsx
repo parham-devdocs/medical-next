@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { ArrowBigRight, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,7 +22,7 @@ export default function CardDemo({ className, image, title, content, ...props }:
   return (
     <Card className={cn("w-[380px] h-[550px]", className , )} {...props}>
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className=" my-3 text-xl font-bold text-primary">{title}</CardTitle>
         <Image src={image} alt={title} width={380} height={200} className=" h-56" /> {/* Added width and height */}
       </CardHeader>
       <CardContent className="grid gap-4">
@@ -33,7 +33,7 @@ export default function CardDemo({ className, image, title, content, ...props }:
       </CardContent>
       <CardFooter>
         <Button className="w-full hover:bg-black">
-          <Check /> Mark all as read
+           Read The  Article <ArrowBigRight/>
         </Button>
       </CardFooter>
     </Card>

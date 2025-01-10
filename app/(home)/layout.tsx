@@ -1,4 +1,5 @@
 
+import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/navbar";
 
 export default function RootLayout({
@@ -10,7 +11,8 @@ export default function RootLayout({
    <div>
              <Navbar />
         <hr />
-        <div className=" px-8 min-h-screen">{children}</div>
+      <div className=" px-8 min-h-screen">{children}</div>
+      <Footer/>
    </div>
      
       

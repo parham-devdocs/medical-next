@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export type NavbarButtonType = {
   icon:ReactNode,
-  text:string,
+  text?:string,
   href:string
 }
 export type Comment = {
