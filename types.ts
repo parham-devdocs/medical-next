@@ -11,3 +11,9 @@ export type Comment = {
   commentator: string,
   date:string
 }
+
+export type Post = {
+  id: number
+  title: string
+  body:string
+}

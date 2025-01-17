@@ -1,6 +1,6 @@
 import Hero from "@/components/common/home/Hero";
 import PatientsReview from "@/components/common/home/PatientsReviews";
-import Advantages from "@/components/common/home/popularArticles";
+import Blogs from "@/components/common/home/popularArticles";
 import Container from "@/components/common/container";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
 
       <Hero />
       <PatientsReview />
-        <Advantages />
+        <Blogs />
       </Container>
     </div>
   );

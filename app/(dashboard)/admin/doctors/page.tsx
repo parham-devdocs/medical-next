@@ -17,7 +17,7 @@ import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import {Avatar,AvatarImage} from "@/components/ui/avatar"
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -101,7 +101,7 @@ const data: Payment[] = [
 ];
 
 export type Payment = {
-    profileImage?:string
+  profileImage?: string;
   doctorId: string;
   name: string;
   password: string;
@@ -145,27 +145,23 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "profileImage", // Corrected accessor key
-    header: () => (
-      <div className="text-center">Profile Image</div> // Added header
-    ),
+    accessorKey: "profileImage",
+    header: () => <div className="text-center">Profile Image</div>,
     cell: ({ row }) => (
       <div className="flex justify-center">
         <Avatar>
           <AvatarImage
             src={
               row.getValue("profileImage") || "https://github.com/shadcn.png"
-            } // Use empty string if no image
-            alt={row.getValue("name")} // Use name as alt text
+            }
+            alt={row.getValue("name")}
           />
-          {/* <AvatarFallback>{row.getValue("name").slice(3, 6)}</AvatarFallback>{" "} */}
-          {/* Fallback to first letter of name */}
         </Avatar>
       </div>
     ),
   },
   {
-    accessorKey: "name", // Fixed typo from "neme" to "name"
+    accessorKey: "name",
     header: ({ column }) => (
       <Button
         variant="ghost"
@@ -201,7 +197,7 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "contactNumber", // Fixed typo from "ContactNumber" to "contactNumber"
+    accessorKey: "contactNumber",
     header: () => <div className="text-right">Contact Number</div>,
     cell: ({ row }) => (
       <div className="text-right font-medium">
@@ -210,7 +206,7 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "emailAddress", // Fixed typo from "email" to "emailAddress"
+    accessorKey: "emailAddress",
     header: () => <div className="text-right">Email</div>,
     cell: ({ row }) => (
       <div className="text-right font-medium">
@@ -251,7 +247,7 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.doctorId)} // Fixed to use doctorId
+              onClick={() => navigator.clipboard.writeText(payment.doctorId)}
             >
               Copy payment ID
             </DropdownMenuItem>
@@ -300,7 +296,7 @@ export default function DataTableDemo() {
           placeholder="Filter emails..."
           value={
             (table.getColumn("emailAddress")?.getFilterValue() as string) ?? ""
-          } // Fixed to use emailAddress
+          }
           onChange={(event) =>
             table.getColumn("emailAddress")?.setFilterValue(event.target.value)
           }
@@ -350,7 +346,7 @@ export default function DataTableDemo() {
           <TableBody>
             {table.getRowModel().rows.length ? (
               table.getRowModel().rows.map((row) => (
-               <div key={row.id}><TableRow
+                <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
@@ -362,7 +358,7 @@ export default function DataTableDemo() {
                       )}
                     </TableCell>
                   ))}
-                </TableRow></div> 
+                </TableRow>
               ))
             ) : (
               <TableRow>

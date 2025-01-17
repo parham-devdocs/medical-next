@@ -31,7 +31,7 @@ const blogs = [
 const PopularArticles = () => {
   return (
     <div>
-      <Header >Popular Blogs</Header>
+      <Header>Popular Blogs</Header>
       <motion.div className="flex flex-col lg:flex-row bg-background w-full justify-between items-center gap-16">
         {blogs.map((blog) => (
           <motion.div
