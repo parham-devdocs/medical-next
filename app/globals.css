@@ -108,3 +108,12 @@ body {
   }
 }
 
+
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating-container .rating {
+  display: inline-block;
+}
