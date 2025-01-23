@@ -10,7 +10,7 @@ const DashboardLayout = async ({ children }: { children: ReactNode }) => {
   return (
     <div className=" h-screen w-screen">
       <SidebarProvider defaultOpen={defaultOpen}>
-        <AppSidebar />
+        <AppSidebar f />
         <main className=" w-[97vw]  ">
           <Navbar/>
           <hr/>

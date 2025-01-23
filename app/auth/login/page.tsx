@@ -19,6 +19,8 @@ const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
+  email: z.string().email({message:"email is not valid"}),
+  city:z.string().min(2),
   password: z.string().min(6, {
     message: "Password must be at least 6 characters.",
   }),
@@ -28,6 +30,8 @@ const formSchema = z.object({
 type Inputs = {
   username: string;
   password: string;
+  email: string;
+  city:string
 };
 
 export default function Login() {
@@ -43,20 +47,64 @@ console.log("login")
   const { control, handleSubmit } = form; // Use the same instance of form
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-blue-300 px-8">
-      <div className="bg-white rounded-md px-7 py-11 w-full sm:w-4/5 md:w-1/2 lg:max-w-md xl:max-w-lg animate-fade-in">
-        <Form {...form}>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="space-y-8"
-          
-          >
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-green-50 to-background px-8">
+      <div className="bg-background shadow-xl rounded-md px-7 py-11 w-full sm:w-4/5 md:w-1/2 flex flex-col gap-5 lg:max-w-md xl:max-w-lg animate-fade-in">
+        <h1 className=" text-primary text-center text-2xl">Login</h1>
+        <hr />
+        <Form {...form}  >
+          <form onSubmit={handleSubmit(onSubmit)}  >
             <FormField
               control={control}
               name="username"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Username</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="shadcn"
+                      {...field}
+                      onChange={(e) => {
+                        field.onChange(e); // Ensure the input value updates
+                        console.log("Username changed");
+                      }}
+                    />
+                  </FormControl>
+                  <div className=" h-">
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="shadcn"
+                      {...field}
+                      onChange={(e) => {
+                        field.onChange(e); // Ensure the input value updates
+                        console.log("Username changed");
+                      }}
+                    />
+                  </FormControl>
+                  <div className=" h-">
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              
+              control={control}
+              name="city"
+              render={({ field }) => (
+                <FormItem >
+                  <FormLabel>City</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="shadcn"
@@ -98,7 +146,7 @@ console.log("login")
               )}
             />
 
-            <Button type="submit" className=" w-full py-5 mt-10">
+            <Button type="submit" className=" w-full py-5 mt-10 ">
               Submit
             </Button>
           </form>
