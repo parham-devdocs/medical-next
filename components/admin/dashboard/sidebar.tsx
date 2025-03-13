@@ -1,5 +1,5 @@
 "use client";
-import { Stethoscope, UserRoundCog, ChartPie, LogOut } from "lucide-react";
+import {  LogOut,Stethoscope,UserRoundCog,ChartPie } from "lucide-react";
 import { useSidebar } from "@/components/ui/sidebar";
 import {
   Sidebar,
@@ -12,28 +12,17 @@ import {
 } from "@/components/ui/sidebar";
 import { Button } from "../../ui/button";
 import Image from "next/image";
+import { Link } from "@/types";
 
-const items = [
-  {
-    title: "doctors",
-    url: "#",
-    icon: Stethoscope,
-  },
-  {
-    title: "patients",
-    url: "#",
-    icon: UserRoundCog,
-  },
-  {
-    title: "Statistics",
-    url: "#",
-    icon: ChartPie,
-  },
-];
 
-export function AppSidebar() {
+export function AppSidebar({items}:{items:Link[]}) {
   const { setOpen ,open} = useSidebar();
-
+  const iconMap: Record<string, React.ComponentType> = {
+    "chart-pie": ChartPie,
+    "user-round-cog": UserRoundCog,
+    "stethoscope": Stethoscope,
+  };
+  
   return (
     <Sidebar
       className=" bg-background"
@@ -54,16 +43,16 @@ export function AppSidebar() {
                   className=" rounded-full border-2 border-primary"
                 />
               </SidebarMenuItem>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
+              {items.map((item) => {
+const IconComponent=iconMap[item.icon]
+                return <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+                    {IconComponent && <IconComponent />} {/* Render the icon */}                      <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-              ))}
+})}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
