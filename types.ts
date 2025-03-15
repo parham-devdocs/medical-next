@@ -1,4 +1,4 @@
-import { ReactNode,ComponentType } from 'react';
+import { ReactNode } from 'react';
 
 export type NavbarButtonType = {
   icon:ReactNode,
@@ -23,3 +23,8 @@ export type Link={
     url: string,
     icon:string
   }
+export type Appointment={
+  with:string
+  date:string
+  time:string
+}

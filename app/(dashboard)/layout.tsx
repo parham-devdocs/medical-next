@@ -20,7 +20,7 @@ const DashboardLayout = async ({ children }: { children: ReactNode }) => {
         <main className=" w-[97vw]  ">
           <Navbar />
           <hr />
-          <div className="px-6">{children}</div>
+          <div className="p-6">{children}</div>
         </main>
       </SidebarProvider>
     </div>

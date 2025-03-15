@@ -29,7 +29,7 @@ body {
     --popover-foreground: 0 0% 3.9%;
     --primary: 146.25, 34.78%, 45.1%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 146.25, 34.78%, 45.1%;
+    --secondary: 108, 25%, 72%;
     --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
@@ -116,4 +116,31 @@ body {
 
 .rating-container .rating {
   display: inline-block;
+}
+
+.fc {
+  width: 500px;
+  /* background-color: hsl(108, 25%, 72%) ; */
+  border:hsl(108, 25%, 72%) solid ;
+  padding: 1rem;
+  height: 100%;
+  border-radius: 5px;
+}
+/* Increase the height of calendar cells */
+.fc-daygrid-day {
+  min-height: 100px; /* Adjust as needed */
+}
+
+/* Ensure text wraps within the cell */
+.fc-daygrid-event {
+  white-space: normal !important; /* Allow text wrapping */
+  word-break: break-word;
+  cursor: pointer;
+ 
+}
+.fc-button-group button{
+  background-color: chocolate;
+}
+.fc-button-primary{
+  background-color: crimson;
 }
