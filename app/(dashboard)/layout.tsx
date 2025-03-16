@@ -7,7 +7,7 @@ import { Link } from "@/types";
 
 const sideBarItems: Link[] = [
   { title: "doctors", url: "/admin/doctors", icon: "stethoscope" },
-  { title: "patients", url: "/admin/patient", icon: "user-round-cog" },
+  { title: "patients", url: "/admin/patients", icon: "user-round-cog" },
   { title: "statistics", url: "/admin/statistics", icon: "chart-pie" },
 ];
 

@@ -5,7 +5,27 @@ export type NavbarButtonType = {
   text?:string,
   href:string
 }
+export type PatientMedicalIssue = {
+  description: string; 
+  assignedDoctorId: string; 
+  status: "In Progress" | "Completed"; 
+};
+export type PatientInfoType = {
+  profileImage?: string;
+  patientId: string;
+  name: string;
+  password: string;
+  age: number;
+  contactNumber: string;
+  emailAddress: string;
+  location: string;
+  gender?: "Male" | "Female" | "Other"; // Optional field for gender
+  bloodType?: string; 
+  allergies?: string[]; 
+  medicalHistory?: string[];
+  medicalIssues:PatientMedicalIssue[]
 
+};
 export type DoctorInfoType = {
   profileImage?: string;
   doctorId: string;
@@ -19,6 +39,7 @@ export type DoctorInfoType = {
   yearsOfExperience: number;
   isDoctorVerified: boolean;
 };
+
 
 export type Comment = {
   image: string,
