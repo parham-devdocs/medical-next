@@ -11,7 +11,7 @@ export default function RootLayout({
    <div>
              <Navbar />
         <hr />
-      <div className=" px-8 min-h-screen">{children}</div>
+      <div className=" px-8 min-h-screen bg-white">{children}</div>
       <Footer/>
    </div>
      

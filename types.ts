@@ -5,6 +5,21 @@ export type NavbarButtonType = {
   text?:string,
   href:string
 }
+
+export type DoctorInfoType = {
+  profileImage?: string;
+  doctorId: string;
+  name: string;
+  password: string;
+  age: number;
+  specialization: string;
+  contactNumber: string;
+  emailAddress: string;
+  location: string;
+  yearsOfExperience: number;
+  isDoctorVerified: boolean;
+};
+
 export type Comment = {
   image: string,
   comment: string,
@@ -16,6 +31,7 @@ export type Post = {
   id: number
   title: string
   body:string
+  date:string
 }
 export type Link={
   
@@ -28,3 +44,5 @@ export type Appointment={
   date:string
   time:string
 }
+
+export type DatePickerEvent=  { title: string, date: string, display: string,id:string }

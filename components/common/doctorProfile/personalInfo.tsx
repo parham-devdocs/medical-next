@@ -53,10 +53,10 @@ const personalInfo = [
   }
 ];
 
-const DoctorProfile = () => {
+const PersonalInfo = () => {
   return (
     <div>
-      <div className="p-4 min-h-full w-fit bg-secondary rounded-sm">
+      <div className="p-4 min-h-full  bg-secondary rounded-sm">
         {/* Profile Image */}
         <Image
           src="/heroPic.png"
@@ -87,4 +87,4 @@ const DoctorProfile = () => {
   );
 };
 
-export default DoctorProfile;
+export default PersonalInfo

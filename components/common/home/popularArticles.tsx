@@ -45,6 +45,7 @@ const PopularArticles = () => {
               title={blog.title}
               image={blog.image}
               content={blog.content}
+              buttonLink={`/blogs/${blog.id}`}
             />
           </motion.div>
         ))}

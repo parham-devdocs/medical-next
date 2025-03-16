@@ -1,5 +1,8 @@
 "use client";
-
+import { IoEyeOutline } from "react-icons/io5";
+import { MdOutlineEdit } from "react-icons/md";
+import { RiDeleteBinLine } from "react-icons/ri";
+import {DoctorInfoType  } from "@/types";
 import * as React from "react";
 import {
   ColumnDef,
@@ -36,8 +39,153 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Link from "next/link";
 
-const data: Payment[] = [
+const data: DoctorInfoType[] = [
+  {
+    doctorId: "m5gr84i9",
+    name: "Dr. Ken",
+    password: "securePassword1",
+    age: 45,
+    specialization: "Cardiology",
+    contactNumber: "123-456-7890",
+    emailAddress: "ken99@yahoo.com",
+    location: "City Hospital",
+    yearsOfExperience: 10,
+    isDoctorVerified: true,
+  },
+  {
+    doctorId: "3u1reuv4",
+    name: "Dr. Abe",
+    password: "securePassword2",
+    age: 38,
+    specialization: "Neurology",
+    contactNumber: "234-567-8901",
+    emailAddress: "Abe45@gmail.com",
+    location: "General Clinic",
+    yearsOfExperience: 8,
+    isDoctorVerified: true,
+  },
+  {
+    doctorId: "derv1ws0",
+    name: "Dr. Monserrat",
+    password: "securePassword3",
+    age: 30,
+    specialization: "Pediatrics",
+    contactNumber: "345-678-9012",
+    emailAddress: "Monserrat44@gmail.com",
+    location: "Children's Hospital",
+    yearsOfExperience: 5,
+    isDoctorVerified: false,
+  },
+  {
+    doctorId: "5kma53ae",
+    name: "Dr. Silas",
+    password: "securePassword4",
+    age: 50,
+    specialization: "Dermatology",
+    contactNumber: "456-789-0123",
+    emailAddress: "Silas22@gmail.com",
+    location: "Skin Care Clinic",
+    yearsOfExperience: 12,
+    isDoctorVerified: true,
+  },
+  {
+    doctorId: "bhqecj4p",
+    name: "Dr. Carmella",
+    password: "securePassword5",
+    age: 55,
+    specialization: "Oncology",
+    contactNumber: "567-890-1234",
+    emailAddress: "carmella@hotmail.com",
+    location: "Cancer Center",
+    yearsOfExperience: 15,
+    isDoctorVerified: true,
+  },
+  {
+    doctorId: "m5gr84i9",
+    name: "Dr. Ken",
+    password: "securePassword1",
+    age: 45,
+    specialization: "Cardiology",
+    contactNumber: "123-456-7890",
+    emailAddress: "ken99@yahoo.com",
+    location: "City Hospital",
+    yearsOfExperience: 10,
+    isDoctorVerified: true,
+  },
+  {
+    doctorId: "3u1reuv4",
+    name: "Dr. Abe",
+    password: "securePassword2",
+    age: 38,
+    specialization: "Neurology",
+    contactNumber: "234-567-8901",
+    emailAddress: "Abe45@gmail.com",
+    location: "General Clinic",
+    yearsOfExperience: 8,
+    isDoctorVerified: true,
+  },
+  {
+    doctorId: "derv1ws0",
+    name: "Dr. Monserrat",
+    password: "securePassword3",
+    age: 30,
+    specialization: "Pediatrics",
+    contactNumber: "345-678-9012",
+    emailAddress: "Monserrat44@gmail.com",
+    location: "Children's Hospital",
+    yearsOfExperience: 5,
+    isDoctorVerified: false,
+  },
+  {
+    doctorId: "5kma53ae",
+    name: "Dr. Silas",
+    password: "securePassword4",
+    age: 50,
+    specialization: "Dermatology",
+    contactNumber: "456-789-0123",
+    emailAddress: "Silas22@gmail.com",
+    location: "Skin Care Clinic",
+    yearsOfExperience: 12,
+    isDoctorVerified: true,
+  },
+  {
+    doctorId: "bhqecj4p",
+    name: "Dr. Carmella",
+    password: "securePassword5",
+    age: 55,
+    specialization: "Oncology",
+    contactNumber: "567-890-1234",
+    emailAddress: "carmella@hotmail.com",
+    location: "Cancer Center",
+    yearsOfExperience: 15,
+    isDoctorVerified: true,
+  },
+  {
+    doctorId: "5kma53ae",
+    name: "Dr. Silas",
+    password: "securePassword4",
+    age: 50,
+    specialization: "Dermatology",
+    contactNumber: "456-789-0123",
+    emailAddress: "Silas22@gmail.com",
+    location: "Skin Care Clinic",
+    yearsOfExperience: 12,
+    isDoctorVerified: true,
+  },
+  {
+    doctorId: "bhqecj4p",
+    name: "Dr. Carmella",
+    password: "securePassword5",
+    age: 55,
+    specialization: "Oncology",
+    contactNumber: "567-890-1234",
+    emailAddress: "carmella@hotmail.com",
+    location: "Cancer Center",
+    yearsOfExperience: 15,
+    isDoctorVerified: true,
+  },
   {
     doctorId: "m5gr84i9",
     name: "Dr. Ken",
@@ -100,21 +248,8 @@ const data: Payment[] = [
   },
 ];
 
-export type Payment = {
-  profileImage?: string;
-  doctorId: string;
-  name: string;
-  password: string;
-  age: number;
-  specialization: string;
-  contactNumber: string;
-  emailAddress: string;
-  location: string;
-  yearsOfExperience: number;
-  isDoctorVerified: boolean;
-};
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<DoctorInfoType>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -234,7 +369,7 @@ export const columns: ColumnDef<Payment>[] = [
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const payment = row.original;
+      const info = row.original;
 
       return (
         <DropdownMenu>
@@ -246,14 +381,24 @@ export const columns: ColumnDef<Payment>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.doctorId)}
-            >
-              Copy payment ID
+            <DropdownMenuItem>
+              <Link className=" flex items-center gap-1" href={`/admin/doctors/${info.doctorId}`}>
+                <IoEyeOutline className=" text-primary" /> View
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem>
+              {" "}
+              <Link  className=" flex items-center gap-1" href={`/admin/doctors/delete/${info.doctorId}`}>
+                <RiDeleteBinLine className=" text-red-700" /> Delete{" "}
+              </Link>{" "}
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              {" "}
+              <Link  className=" flex items-center gap-1" href={`/admin/doctors/edit/${info.doctorId}`}>
+                <MdOutlineEdit className=" text-blue-600" /> Edit{" "}
+              </Link>{" "}
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
@@ -281,6 +426,9 @@ export default function DataTableDemo() {
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
+    initialState:{
+      pagination:{pageSize:5}
+    },
     state: {
       sorting,
       columnFilters,

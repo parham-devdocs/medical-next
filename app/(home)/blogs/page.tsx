@@ -16,8 +16,6 @@ const blogPage = async ({ searchParams }: HomeProps) => {
   const postsPerPage = parseInt((pageSize as string) || "10");
 
   const { posts, totalPosts } = await fetchPosts(currentPage, postsPerPage);
-  console.log(currentPage);
-  console.log(postsPerPage);
   return (
     <Container>
       <Header>Blogs</Header>
